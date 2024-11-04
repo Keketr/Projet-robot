@@ -1,0 +1,26 @@
+Le projet a pour but de développer une application qui montre la desnité des chemins empruntés par les robots.
+
+Dans ce cas on aura notre backend en C# et notre frontend en typescript
+
+Consignes données : 
+
+1. Développement d'un outil pour rejouer la trajectoire des robots :
+Le stagiaire aura pour première mission de développer un outil visuel permettant
+de rejouer les trajectoires et positions des robots au sein de l'entrepôt. Cet outil
+permettra une meilleure compréhension des mouvements et interactions des
+robots dans l'environnement.
+2. Analyses graphiques des trajectoires des robots :
+Le stagiaire réalisera des analyses graphiques pour visualiser la performance des
+robots. Cela inclura la création de heatmaps afin d'identifier les zones de densité
+de robots, les points de blocage potentiel, et autres éléments critiques
+permettant d'optimiser les déplacements.
+3. Réflexion et implémentation de métriques de performance :
+Un autre aspect clé de la mission consistera à définir des métriques de
+performance pertinentes pour évaluer l'efficacité des stratégies de coordination
+multi-robots (par ex. le temps d’accomplissement des tâches, la fluidité des
+mouvements, l’optimisation des ressources, etc.).
+4. Participation à la réflexion sur les stratégies de coordination multi-robots :
+En collaboration avec l'équipe d'encadrement, le stagiaire sera impliqué dans la
+recherche de nouvelles stratégies de coordination. Cela inclura l’analyse de
+méthodes existantes, ainsi que la proposition d’innovations basées sur les
+données récoltées et les outils développés
