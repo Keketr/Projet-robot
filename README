@@ -24,3 +24,72 @@ En collaboration avec l'équipe d'encadrement, le stagiaire sera impliqué dans 
 recherche de nouvelles stratégies de coordination. Cela inclura l’analyse de
 méthodes existantes, ainsi que la proposition d’innovations basées sur les
 données récoltées et les outils développés
+
+
+
+Plan sur Unity : 
+
+
+**Plan d'attaque pour le projet Heatmap avec gestion des robots et analyse historique**
+
+### 1. Structure de Base et Initialisation
+1.1. **Création des Classes et Interfaces**
+- Créer la classe `Robot` avec les attributs nécessaires (ID, nom, batterie, position, etc.). Le code fourni est déjà une bonne base pour commencer.
+- Définir l'interface `IShiftDataConnector` qui sera utilisée pour la communication avec les bases de données.
+- Implémenter des classes concrètes comme `FakeConnector`, `MaeveConnector`, etc., qui héritent de `IShiftDataConnector` pour obtenir les données des robots.
+
+1.2. **Configuration Initiale des Composants**
+- Ajouter un panneau de sélection pour choisir la base de données à utiliser (connecteurs différents).
+- Créer un `ShiftManager` qui est responsable de la récupération des données des robots en utilisant le connecteur approprié.
+
+### 2. Time Management et Contrôle de la Progression
+2.1. **Implémentation du TimeManager**
+- Fusionner les scripts `SliderScript` et `PauseController` dans un nouveau script `TimeManager`.
+  - Gérer la logique de mise en pause et la manipulation du slider.
+  - Mettre à jour les valeurs min et max du temps en millisecondes en fonction de l'entrée utilisateur (par exemple, de 8h à 12h).
+- Associer le `TimeManager` à la barre de progression.
+- Créer un événement pour notifier les autres composants lorsque l'intervalle de temps change.
+
+2.2. **Mise en Place du ProgressBarController**
+- Le `ProgressBarController` utilise les bornes (min et max) définies par le `TimeManager` pour la progression de la barre.
+- S'assurer que le `ProgressBarController` gère la synchronisation du slider et la mise en pause/lecture.
+
+### 3. Gestion des Robots et Analyse Historique
+3.1. **Récupération des Données des Robots**
+- Le `ShiftManager` interagit avec `IShiftDataConnector` pour récupérer les données historiques des robots pour un shift donné.
+- Stocker les données des robots (comme ID, statut, batterie, etc.) dans le `RobotManager`.
+
+3.2. **Implémentation du RobotManager**
+- Gérer un tableau ou une liste des robots avec leurs caractéristiques.
+- Le `RobotManager` écoute les événements du `TimeManager` et, lorsque requis, affiche les robots sur la Heatmap (en fonction des données historiques).
+
+### 4. Mise en Place de la Heatmap
+4.1. **Conception de la Heatmap**
+- Développer une Heatmap qui visualise la position et les activités des robots à un moment donné.
+- Le `RobotManager` doit utiliser les événements du `TimeManager` pour déclencher le rendu des robots sur la Heatmap.
+
+4.2. **Affichage Dynamique**
+- Ajouter des contrôles permettant à l'utilisateur de naviguer dans le temps (via le slider).
+- Utiliser des événements pour mettre à jour dynamiquement la Heatmap à mesure que l'utilisateur interagit avec la barre de progression.
+
+### 5. Tests et Ajustements
+5.1. **Tests Unitaires**
+- Créer des tests unitaires pour vérifier que les connecteurs (`FakeConnector`, `MaeveConnector`) peuvent bien récupérer les données des robots.
+- Tester le `TimeManager` pour s'assurer que les événements sont bien déclenchés et reçus par le `RobotManager`.
+
+5.2. **Ajustements de l'Interface Utilisateur**
+- Ajuster l'interface utilisateur pour une navigation fluide entre les différents écrans (choix de la base de données, affichage de la Heatmap).
+- Assurer une bonne expérience utilisateur avec des boutons de lecture/pause bien synchronisés avec le slider.
+
+### 6. Fonctionnalités Futures et Optimisations
+6.1. **Heatmap Avancée**
+- Ajouter une fonctionnalité de zoom sur la Heatmap pour observer des zones spécifiques avec plus de détails.
+- Permettre la visualisation des chemins empruntés par les robots à différents moments.
+
+6.2. **Optimisations de Performance**
+- S'assurer que le système est optimisé pour gérer un grand nombre de robots sans ralentissements.
+- Implémenter des mécanismes de mise en cache pour les données fréquemment consultées afin d'éviter des appels API répétitifs.
+
+### Conclusion
+Ce plan d'attaque te permet de construire progressivement ton projet, en gardant chaque composant bien découplé pour faciliter la maintenance et l'évolutivité. Si tu as besoin de détails supplémentaires sur une étape ou de l'aide à la mise en place de certaines parties du code, je suis là pour t'aider à chaque étape.
+
