@@ -6,7 +6,7 @@ public class ProgressBarController : MonoBehaviour
     public Button pauseButton;
     private TimeManager _timeManager;
     private bool isPlaying = false;
-
+//
     void Start()
     {
         
