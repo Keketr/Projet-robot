@@ -7,6 +7,7 @@ public class RobotDataHistory
     public List<PositionDataHistory> PositionData { get; set; }
     public List<RobotStatusHistory> StatusData { get; set; }
 }
+//
 
 public class BatteryDataHistory
 {
