@@ -9,7 +9,7 @@ public class FakeConnector : IShiftDataConnector
 
     public List<Robot> GetRobotsData(DateTime startTime, DateTime endTime)
     {
-        // Simulation de données pour les robots
+        
         return _robots;
     }
 }

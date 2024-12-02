@@ -13,7 +13,7 @@ public class ProgressBarController : MonoBehaviour
         playButton.onClick.AddListener(OnPlay);
         pauseButton.onClick.AddListener(OnPause);
 
-        // Initialiser la barre de progression
+        
         progressBar.value = 0; 
 
         // Récupérer le TimeManager de la scène
